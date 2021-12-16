@@ -15,7 +15,7 @@ export default function WeatherForecast(props) {
   if (loaded) {
     return (
       <div className="WeatherForecast">
-        <div clasName="row">
+        <div className="row">
           {forecast.map(function (forecastDaily, index) {
             if (index < 5) {
               return (
@@ -24,6 +24,7 @@ export default function WeatherForecast(props) {
                 </div>
               );
             }
+            return null;
           })}
         </div>
       </div>
@@ -33,8 +34,8 @@ export default function WeatherForecast(props) {
     let longitude = props.coordinates.lon;
     let latitude = props.coordinates.lat;
     let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
+
     axios.get(apiUrl).then(handleResponse);
-    ///also had to include info in the weather.js  setWeatherData now includes coord and also down in the component it has to include the coordinates.
 
     return null;
   }
