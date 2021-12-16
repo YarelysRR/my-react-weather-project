@@ -13,13 +13,11 @@ export default function WeatherForecast(props) {
   }
 
   if (loaded) {
-    console.log(forecast);
     return (
       <div className="WeatherForecast">
         <div clasName="row">
           {forecast.map(function (forecastDaily, index) {
             if (index < 5) {
-              // index <5: this is to specify we want to show 5 day forecast, if we dont put this will show 8.
               return (
                 <div className="col" key={index}>
                   <WeatherForecastDay data={forecastDaily} />
